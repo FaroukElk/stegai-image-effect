@@ -1,0 +1,4 @@
+runtime: nodejs12 # or nodejs10
+
+env_variables:
+  BUCKET_NAME: "stegai-image-effect-server-bucket"
