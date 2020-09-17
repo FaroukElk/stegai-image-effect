@@ -17,7 +17,7 @@ console.log(CLOUD_BUCKET);
 //   },
 // });
 
-const multer = Multer({dest: 'uploads/'});
+const multer = Multer({dest: '/uploads/'});
 
 function uploadToGCS(req, res, next) {
   console.log('Inside UploadToGCS: ' + req.file );
