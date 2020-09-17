@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "start": "cd angular && ng serve | node node/server.js"
+    "start": "node node/server.js | cd angular && ng serve "
   }
 }
