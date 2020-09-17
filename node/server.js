@@ -15,9 +15,9 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect('mongodb://35.227.45.183:27017/steg_images')
+mongoose.connect('mongodb://AdminUser:stegai123@35.227.45.183:27017/steg_images?authSource=admin')
   .then(() => console.log('Connected to Database!'))
-  .catch(() => console.log('Database Connection Error'));
+  .catch((err) => console.log('Database Connection Error: ' + err));
 
 app.use(bodyParser.json());
 
