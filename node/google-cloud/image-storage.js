@@ -42,7 +42,7 @@ function uploadToGCS(req, res, next) {
   });
 
   stream.on('finish', async () => {
-    req.fild.cloudStorageObject = gcsname;
+    req.file.cloudStorageObject = gcsname;
     await file.makePublic();
     req.file.cloudStoragePublicUrl = getPublicUrl(gcsname);
     next();

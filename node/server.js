@@ -3,18 +3,17 @@ const mongoose =  require('mongoose');
 const bodyParser = require('body-parser');
 const imageRoutes = require('./routes/image-routes');
 
-// if (process.env.NODE_ENV === "production") {
-//   require("@google/cloud-trace").start();
-// }
-
-// if (process.env.GCLOUD_PROJECT) {
-//   require("@google/cloud-debug").start();
-// }
-
 const app = express();
 
 const PORT = process.env.PORT || 3000;
+console.log('Server running on Port ' + PORT);
 
+//localhost configuration
+// mongoose.connect('mongodb://localhost:27017/steg_images')
+//   .then(() => console.log('Connected to Database!'))
+//   .catch((err) => console.log('Database Connection Error: ' + err));
+
+//google cloud mongodb connection
 mongoose.connect('mongodb://AdminUser:stegai123@35.227.45.183:27017/steg_images?authSource=admin')
   .then(() => console.log('Connected to Database!'))
   .catch((err) => console.log('Database Connection Error: ' + err));
@@ -29,10 +28,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/image', imageRoutes);
-
-app.get('/', (req, res) => {
-  res.send('Hello Node.js from google cloud app engine');
-});
 
 
 app.listen(PORT);
