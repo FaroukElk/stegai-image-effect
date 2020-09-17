@@ -7,6 +7,9 @@ const CLOUD_BUCKET = GOOGLE_CLOUD_PROJECT + '-bucket';
 const storage = new Storage();
 const bucket = storage.bucket(CLOUD_BUCKET);
 
+console.log(GOOGLE_CLOUD_PROJECT);
+console.log(CLOUD_BUCKET);
+
 // const multer = Multer({
 //   storage: Multer.MemoryStorage,
 //   limits: {
@@ -17,6 +20,7 @@ const bucket = storage.bucket(CLOUD_BUCKET);
 const multer = Multer({dest: 'uploads/'});
 
 function uploadToGCS(req, res, next) {
+  console.log('Inside UploadToGCS: ' + req.file );
   if (!req.file) {
     next();
   }
@@ -32,6 +36,7 @@ function uploadToGCS(req, res, next) {
   });
 
   stream.on('error', err => {
+    console.log('Upload to GCS error: ' + err);
     req.file.cloudStorageError = err;
     next(err);
   });

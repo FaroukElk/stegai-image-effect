@@ -25,6 +25,8 @@ router.get("/all", (req, res, next) => {
 
 router.post("/:effect", imageStorge.multer.single('file'), imageStorage.uploadToGCS, async  (req, res, next) => {
 
+  console.log('Inside image post: ' + req.file);
+
   let data = req.body;
 
   if (req.file) {
@@ -43,6 +45,7 @@ router.post("/:effect", imageStorge.multer.single('file'), imageStorage.uploadTo
       });
     })
     .catch(err => {
+      console.log(err);
       res.status(500).json({
         errror: err
       });
