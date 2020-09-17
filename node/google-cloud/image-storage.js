@@ -7,9 +7,7 @@ const CLOUD_BUCKET = GOOGLE_CLOUD_PROJECT + '-bucket';
 const storage = new Storage();
 const bucket = storage.bucket(CLOUD_BUCKET);
 
-console.log(GOOGLE_CLOUD_PROJECT);
-console.log(CLOUD_BUCKET);
-
+//Google Cloud multer config
 const multer = Multer({
   storage: Multer.MemoryStorage,
   limits: {
@@ -17,6 +15,7 @@ const multer = Multer({
   },
 });
 
+//localhost multer config
 //const multer = Multer({dest: '/uploads/'});
 
 function uploadToGCS(req, res, next) {

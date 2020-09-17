@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose =  require('mongoose');
 const bodyParser = require('body-parser');
 const imageRoutes = require('./routes/image-routes');
+const mongoConfig = require('./mongo-config/config');
 
 const app = express();
 
@@ -14,7 +15,7 @@ console.log('Server running on Port ' + PORT);
 //   .catch((err) => console.log('Database Connection Error: ' + err));
 
 //google cloud mongodb connection
-mongoose.connect('mongodb://AdminUser:stegai123@35.227.45.183:27017/steg_images?authSource=admin')
+mongoose.connect(`mongodb://${mongoConfig.user}:${mongoConfig.pass}@35.227.45.183:27017/steg_images?authSource=admin`)
   .then(() => console.log('Connected to Database!'))
   .catch((err) => console.log('Database Connection Error: ' + err));
 
