@@ -1,7 +1,7 @@
 # stegai-image-effect
 Project can be found at following url: https://steg-image-effect.uk.r.appspot.com/
 
-# Technology Used
+# Stack
 1. Angular (https://angular.io/guide/setup-local)
 2. NodeJS (https://nodejs.org/en/)
 3. MongoDB (https://www.mongodb.com/)
