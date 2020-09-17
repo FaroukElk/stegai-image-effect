@@ -1,0 +1,21 @@
+.content-container {
+  display: flex;
+  flex-direction: column;
+
+  .close-dialog-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    background-color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .close-icon {
+    color: white;
+    margin-right: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

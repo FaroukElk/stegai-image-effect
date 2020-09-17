@@ -1,0 +1,69 @@
+<div class="main-container">
+
+  <div class="info-row">
+    <p>Upload an image and select an effect option to see that effect applied to your image</p>
+  </div>
+
+  <div class="upload-section">
+
+    <mat-form-field class="upload-form-field">
+      <input matInput class="input-file-upload" placeholder="Image File" [value]="selectedFileName" readonly>
+      <mat-hint>Supported Image Files: .jpg .jpeg .png </mat-hint>
+      <input hidden type="file" (change)="handleFileInput($event.target.files)" #fileInputElem enctype="multipart/form-data">
+      <button *ngIf="selectedFileName === ''" mat-button matSuffix color="primary" (click)="fileInputElem.click()">Browse</button>
+      <button *ngIf="selectedFileName !== ''" mat-button matSuffix color="warn" (click)="removeFile()">Remove</button>
+    </mat-form-field>
+
+    <mat-form-field class="no-padding effect-mat-select">
+      <mat-select matInput placeholder="Effect" [(value)]="selectedEffect">
+        <mat-option value="none">None</mat-option>
+        <mat-option value="antique">Antique</mat-option>
+        <mat-option value="blackWhite">Black & White</mat-option>
+        <mat-option value="blur">Blur</mat-option>
+        <mat-option value="brighten">Brighten</mat-option>
+        <mat-option value="contrastLow">Contrast (Low)</mat-option>
+        <mat-option value="contrastHigh">Contrast (High)</mat-option>
+        <mat-option value="invert">Invert</mat-option>
+        <mat-option value="saturate">Saturate</mat-option>
+        <mat-option value="transparent">Transparent</mat-option>
+      </mat-select>
+    </mat-form-field> 
+
+    <div class="upload-btn-wrapper">
+      <button mat-raised-button matSuffix color="primary" [disabled]="!selectedFile || !selectedEffect" (click)="uploadFile()">
+        <mat-icon class="material-icons-outlined photo-icon">photo</mat-icon>
+        UPLOAD
+      </button>
+    </div>
+
+  </div>
+
+  <div class="table-wrapper mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 image-table">
+
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef>Image</th>
+        <td mat-cell *matCellDef="let element">
+          <img (click)="openImageDialog(element.url)" style="height: 125px; width: 125px;"[src]="element.url" #image>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="effect">
+        <th mat-header-cell *matHeaderCellDef>Effect</th>
+        <td mat-cell *matCellDef="let element"> {{ element.effect }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="uploadDate">
+        <th mat-header-cell *matHeaderCellDef>Upload Date</th>
+        <td mat-cell *matCellDef="let element"> {{ element.uploadDate | date: 'short' }} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+  </div>
+  
+</div>
+
+
