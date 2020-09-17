@@ -1,5 +1,5 @@
 # stegai-image-effect
-Take home project for Steg.ai
+Project can be found at following url: https://steg-image-effect.uk.r.appspot.com/
 
 # Technology Used
 1. Angular (https://angular.io/guide/setup-local)
