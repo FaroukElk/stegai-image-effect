@@ -23,7 +23,7 @@ router.get("/all", (req, res, next) => {
 
 //
 
-router.post("/:effect", imageStorge.multer.single('file'), imageStorage.uploadToGCS, async  (req, res, next) => {
+router.post("/:effect", imageStorage.multer.single('file'), imageStorage.uploadToGCS, async  (req, res, next) => {
 
   console.log('Inside image post: ' + req.file);
 
