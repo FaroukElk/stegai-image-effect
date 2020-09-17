@@ -1,0 +1,12 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+
+- url: /
+  static_files: dist/steg-image-effect/index.html
+  upload: dist/steg-image-effect/index.html
+
+- url: /
+  static_dir: dist/steg-image-effect
