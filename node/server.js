@@ -30,5 +30,9 @@ app.use((req, res, next) => {
 
 app.use('/image', imageRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Hello Node.js from google cloud app engine');
+});
+
 
 app.listen(PORT);
