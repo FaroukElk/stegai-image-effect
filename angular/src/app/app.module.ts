@@ -18,6 +18,9 @@ import { ImageEnlargeDialogComponent } from './dialogs/image-enlarge-dialog/imag
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { EffectValuePipe } from './pipes/effect-value.pipe';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AppComponent,
     HeaderComponent,
     MainComponent,
-    ImageEnlargeDialogComponent
+    ImageEnlargeDialogComponent,
+    EffectValuePipe
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatDialogModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

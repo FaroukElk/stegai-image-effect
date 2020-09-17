@@ -30,15 +30,7 @@ router.get("/all", (req, res, next) => {
 // Route with Google Cloud upload middleware
  router.post("/:effect", imageStorage.multer.single('file'), imageStorage.uploadToGCS, async  (req, res, next) => {
 
-  console.log('Inside image post: ' + req.file);
-
   let data = req.body;
-
-  if (req.file) {
-    console.log(req.file);
-  }
-  
-  //imageUrl = "https://media.gettyimages.com/photos/jersey-city-skyline-with-goldman-sachs-tower-reflected-in-water-of-picture-id1155210317?s=2048x2048";
 
   const image = new Image({
     url: req.file.cloudStoragePublicUrl,

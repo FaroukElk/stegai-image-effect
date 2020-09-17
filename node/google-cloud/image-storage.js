@@ -19,7 +19,6 @@ const multer = Multer({
 //const multer = Multer({dest: '/uploads/'});
 
 function uploadToGCS(req, res, next) {
-  console.log('Inside UploadToGCS: ' + req.file );
   if (!req.file) {
     next();
   }

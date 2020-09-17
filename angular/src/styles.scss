@@ -11,3 +11,44 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-snack-bar-container {
   margin-top: 200px !important;
 }
+
+.antique {
+  filter: sepia(100%);
+}
+
+.blackWhite {
+  filter: grayscale(100%);
+}
+
+
+.blur {
+  filter: blur(2px);
+}
+
+.blur-lg {
+  filter: blur(4px);
+}
+
+.brighten {
+  filter: brightness(250%);
+}
+
+.contrastLow {
+  filter: contrast(60%);
+}
+
+.contrastHigh {
+  filter: contrast(200%);
+}
+
+.invert {
+  filter: invert(100%);
+}
+
+.transparent {
+  filter: opacity(50%);
+}
+
+.saturate {
+  filter: saturate(7);
+}

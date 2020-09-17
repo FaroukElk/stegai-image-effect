@@ -2,6 +2,11 @@
   <div class="close-dialog-wrapper">
     <mat-icon class="close-icon" (click)="closeDialog()">close</mat-icon>
   </div>
-  <img [src]="imageUrl" style="width: 100%; height: 100%;">
+  <img [src]="image.url" style="width: 100%; height: 100%;"
+    [ngClass]="{'antique': image.effect === 'antique', 'blur-lg': image.effect === 'blur',
+    'brighten': image.effect === 'brighten', 'blackWhite': image.effect === 'blackWhite',
+    'contrastLow': image.effect === 'contrastLow', 'contrastHigh': image.effect === 'contrastHigh',
+    'invert': image.effect === 'invert', 'transparent': image.effect === 'transparent',
+    'saturate': image.effect === 'saturate'}">
 </div>
 

@@ -10,6 +10,8 @@ export class ImageService {
 
   private images: Image[] = [];
   private imageSubject: Subject<Image[]> = new Subject<Image[]>();
+  //private serverUrl = 'http://localhost:3000/'
+  private serverUrl = 'https://steg-image-effect-server.uk.r.appspot.com/'
 
   constructor(private httpClient: HttpClient) { }
 
@@ -18,7 +20,7 @@ export class ImageService {
   }
 
   getImages() {
-  this.httpClient.get<Image[]>("http://localhost:3000/image/all")
+  this.httpClient.get<Image[]>(this.serverUrl + "image/all")
     .subscribe(result => {
       this.images = result;
       this.imageSubject.next([...this.images]);
@@ -27,6 +29,6 @@ export class ImageService {
 
   uploadImage(formData: FormData, effect: string) {
     console.log(formData);
-    return this.httpClient.post('http://localhost:3000/image/' + effect, formData)
+    return this.httpClient.post(this.serverUrl + 'image/' + effect, formData)
   }
 }
