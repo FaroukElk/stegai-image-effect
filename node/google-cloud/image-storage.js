@@ -10,14 +10,14 @@ const bucket = storage.bucket(CLOUD_BUCKET);
 console.log(GOOGLE_CLOUD_PROJECT);
 console.log(CLOUD_BUCKET);
 
-// const multer = Multer({
-//   storage: Multer.MemoryStorage,
-//   limits: {
-//     fileSize: 5 * 1024 * 1024, // no larger than 5mb
-//   },
-// });
+const multer = Multer({
+  storage: Multer.MemoryStorage,
+  limits: {
+    fileSize: 5 * 1024 * 1024 * 2, // no larger than 10mb
+  },
+});
 
-const multer = Multer({dest: '/uploads/'});
+//const multer = Multer({dest: '/uploads/'});
 
 function uploadToGCS(req, res, next) {
   console.log('Inside UploadToGCS: ' + req.file );
