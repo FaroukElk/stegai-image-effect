@@ -21,9 +21,9 @@ router.get("/all", (req, res, next) => {
     });
 });
 
-//, imageStorage.uploadToGCS,
+//
 
-router.post("/:effect", upload.single('file'), async  (req, res, next) => {
+router.post("/:effect", imageStorge.multer.single('file'), imageStorage.uploadToGCS, async  (req, res, next) => {
 
   let data = req.body;
 
