@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 console.log('Server running on Port ' + PORT);
 
 //localhost configuration
+
 // mongoose.connect('mongodb://localhost:27017/steg_images')
 //   .then(() => console.log('Connected to Database!'))
 //   .catch((err) => console.log('Database Connection Error: ' + err));
@@ -18,6 +19,8 @@ console.log('Server running on Port ' + PORT);
 mongoose.connect(`mongodb://35.227.45.183:27017/steg_images?authSource=admin`)
   .then(() => console.log('Connected to Database!'))
   .catch((err) => console.log('Database Connection Error: ' + err));
+
+
 
 app.use(bodyParser.json());
 
@@ -29,10 +32,5 @@ app.use((req, res, next) => {
 });
 
 app.use('/image', imageRoutes);
-
-app.use('/', (req, res, next) => {
-  res.status(200).send('This is working on empty route');
-})
-
 
 app.listen(PORT);
