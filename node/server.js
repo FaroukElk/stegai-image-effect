@@ -15,7 +15,7 @@ console.log('Server running on Port ' + PORT);
 //   .catch((err) => console.log('Database Connection Error: ' + err));
 
 //google cloud mongodb connection
-mongoose.connect(`mongodb://${mongoConfig.user}:${mongoConfig.pass}@35.227.45.183:27017/steg_images?authSource=admin`)
+mongoose.connect(`mongodb://35.227.45.183:27017/steg_images?authSource=admin`)
   .then(() => console.log('Connected to Database!'))
   .catch((err) => console.log('Database Connection Error: ' + err));
 
@@ -29,6 +29,10 @@ app.use((req, res, next) => {
 });
 
 app.use('/image', imageRoutes);
+
+app.use('/', (req, res, next) => {
+  res.status(200).send('This is working on empty route');
+})
 
 
 app.listen(PORT);
